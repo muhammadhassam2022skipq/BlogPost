@@ -1,0 +1,10 @@
+<p class="mt-5 text-center">
+    <a class="btn btn-success btn-lg" routerLink="../add">Add Blog</a>
+</p>
+<div *ngIf="blogs.length > 0; else noRecordTable">
+    <app-list-blogs-content *ngFor="let blog of blogs" [blog]="blog"  (deletedBlog)="deletedBlog($event)"></app-list-blogs-content>
+    
+</div>
+<ng-template #noRecordTable>
+<h1 class="text-center">No Blog record(s) found.</h1>
+</ng-template>
